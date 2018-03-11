@@ -92,7 +92,7 @@ It has two steps, first is to get a certificate [instructions mentioned in previ
 ## Authors
 
 * **Chirag Jain** - *er.chiragjain92@gmail.com* - [github](http://github.com/CJ8664)
-* **Ankit Jain** - *er.chiragjain92@gmail.com* - [github](http://github.com/CJ8664)
+* **Ankit Jain** - *ankit13jain@gmail.com* - [github](http://github.com/ankit13jain)
 * **Nirav Jain** - *er.chiragjain92@gmail.com* - [github](http://github.com/CJ8664)
 * **Rishabh Jain** - *rishabh05apr@gmail.com* - [github](https://github.com/Rishabh05apr)
 * **Pratik Kumar Jain** - *kumathpratik@gmail.com* - [github](https://github.com/pratikkumar-jain)
