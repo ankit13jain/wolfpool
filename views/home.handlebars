@@ -349,7 +349,8 @@
 
 					var already_there = $("#resultsDiv").is(':visible');
 					if (already_there) {
-						$('#resultTable tbody> tr').remove();
+						console.log("already there");
+						$('#resultTable').empty();
 					} else {
 						$("#resultsDiv").show();
 					}
