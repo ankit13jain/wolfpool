@@ -332,7 +332,7 @@
 
 		if (!$("#mainDetailsForm").valid())
 			return false;
-
+		$('#create_btn').hide();
 		$('#source_lat').val(sourceObject.geometry.location.lat());
 		$('#source_long').val(sourceObject.geometry.location.lng());
 		$('#dest_lat').val(destinationObject.geometry.location.lat());
