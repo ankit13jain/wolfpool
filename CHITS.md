@@ -32,3 +32,4 @@ OIX
 LAA
 XRR
 EQL
+KTJ
