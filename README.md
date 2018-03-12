@@ -1,6 +1,6 @@
 # WolfPool
 
-UberPOOL and LyftLine are very efficient and affordable for travelling short distances. However, for suburban areas and a majority of metropolitan cities this option is not available. This is mainly due to low number of people travelling on the same route. The connectivity and frequency of public transportation is limited in these areas. In addition to these issues, there are a lot of difficulties to communicate and plan the rides using social media platforms such as Facebook and Whatsapp. To tackle the problems mentioned above, we have devised WolfPool as a service that specifically targets to enhance communication and convenience in planning of rides.
+UberPOOL and LyftLine are very efficient and affordable for travelling short distances. However, for suburban areas and a majority of metropolitan cities this option is not available. This is mainly due to low number of people travelling on the same route. The connectivity and frequency of public transportation is limited in these areas. In addition to these issues, there are a lot of difficulties to communicate and plan the rides using social media platforms such as Facebook and Whatsapp. To tackle the problems mentioned above, we have devised WolfPool as a service that specifically targets to enhance communication and convenience in planning of rides.
 
 ## Getting Started
 
@@ -57,7 +57,7 @@ export MJ_PRIVATE_KEY="Your Private key"
 ```
 
 * Open the file controllers/UserController.js and modify the hostname in line 31 that forms the hostname part of the verification link.
-
+* Open the file views/partials/head.handlebars and comment line 12 that redirects the traffic to HTTPS for the web application to work on localhost.
 
 STEP 6: If all the above steps are completed successfully then you can start the bare minimum web application host **[Few of the essential features on work online when hosted on a cloud service provider like Amazon Web Services]**
 
@@ -69,24 +69,41 @@ node app.js
 'Express started on http://localhost:3000 press Ctrl-C to terminate'
 ```
 
-## Amazon Web Serivces Deployment
+Now you can register as a new user and start using the web application. Once you get the
 
-## HTTPS Certificate installation
+## HTTPS Certificate installation [Free][Not Needed for Localhost]
 
-## Google Analytics Setup
+You can get an SSL Certificate for your web application from [https://www.sslforfree.com/](https://www.sslforfree.com/). This will enable make all the data transfer on your website secure. More importantly the web application uses native HTML5 geolocation API, which works fine on localhost but fails to work once hosted on AWS or other hosting. The part to install this certificate on AWS will be covered in upcoming sections.
+
+NOTE: This step is one of the step in AWS deployment but mentioned as separate step so that can be used in any other project.
+
+## Google Analytics Setup [Optional]
+
+Please follow the step mentioned in the Google reference doc [here](https://support.google.com/analytics/answer/1008080?hl=en). Once you get the analytics code you can replace it in the file views/partials/head.handlebars, lines 22 through 28. Google Analytics is a brilliant tool to understand and track Daily user activities and other details.
+
+## Amazon Web Services Deployment
+
+* **Installing Node.js on Elasticbeanstalk**: If you dont know what Elasticbeanstalk is please watch [this short video](https://youtu.be/SrwxAScdyT0) (recommended) before you start. The instructions are explained clearly and exhaustively in this [link](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/nodejs-getstarted.html)
+
+* **Installing MongoDB in the EC2 instance of the Elasticbeanstalk application**: Once you have SSH access to the EC2 instance that is being used for your application, please use Putty or Terminal to remotely login into the server. Once you are looged in follow the steps mentioned in the [link](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-amazon/) to install MongoDB service which can be connected locally by the Node.js service.
+
+* **Installing SSL certificate:**
+It has two steps, first is to get a certificate [instructions mentioned in previous section]. This certificate then needs to be registered on your AWS account. Please follow the instruction in the [link](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate-api-cli.html#import-certificate-api) to import the certificate. Next use this configured certificate in your elasticbeanstalk application. The instructions are mentioned in this [link](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/configuring-https-elb.html)
 
 ## Authors
 
 * **Chirag Jain** - *er.chiragjain92@gmail.com* - [github](http://github.com/CJ8664)
-* **Ankit Jain** - *er.chiragjain92@gmail.com* - [github](http://github.com/CJ8664)
-* **Nirav Jain** - *er.chiragjain92@gmail.com* - [github](http://github.com/CJ8664)
-* **Rishabh Jain** - *er.chiragjain92@gmail.com* - [github](http://github.com/CJ8664)
-* **Pratik Jain** - *er.chiragjain92@gmail.com* - [github](http://github.com/CJ8664)
+* **Ankit Jain** - *ankit13jain@gmail.com* - [github](http://github.com/ankit13jain)
+* **Nirav Jain** - *niravr7@gmail.com* - [github](http://github.com/niravjain)
+* **Rishabh Jain** - *rishabh05apr@gmail.com* - [github](https://github.com/Rishabh05apr)
+* **Pratik Kumar Jain** - *kumathpratik@gmail.com* - [github](https://github.com/pratikkumar-jain)
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
-## More about the research and inspiration for the project
+## More about the research, references and inspiration for the project
 
-Reasearch #1 - [wolfpool-report1-group-f.pdf](/reports/wolfpool-report1-group-f.pdf)
+* Reasearch: [wolfpool-report1-group-f.pdf](/reports/wolfpool-report1-group-f.pdf)
+* [Google Maps API](https://developers.google.com/maps/documentation/javascript/places-autocomplete)
+* [Authentication in Node.js using MongoDB](https://medium.com/of-all-things-tech-progress/starting-with-authentication-a-tutorial-with-node-js-and-mongodb-25d524ca0359)

@@ -67,10 +67,12 @@ exports.joinPlan = function(request, response) {
 
       // Send email to users in list that current user joined plan
       var emails = [];
+      var emails_for_mail = "";
       plan.emails.forEach(function(email) {
         emails.push({
           'Email': email
         });
+        emails_for_mail += " " + email
       });
       console.log(emails);
       // Configure the api
@@ -82,7 +84,7 @@ exports.joinPlan = function(request, response) {
           "FromEmail": "sengncsu2018@gmail.com",
           "FromName": "Wolfpool Support",
           "Subject": 'Someone just joined your wolfpool plan!',
-          "Html-part": 'Hi there!\n\t' + request.session.userName + ' just joined your trip with details listed below. You can get in touch with the email: ' + request.session.userEmail + '.\nTrip details:\nSource: ' + plan.source_lat + '\nDestination:' + plan.dest_lat + '\nDate:' + plan.date + '\nTime:' + plan.time,
+          "Html-part": 'Hi there! ' + request.session.userName + ' just joined your trip with details listed below. Following are the email addresses of everyone in the plan: ' + emails_for_mail + '.<br/><h4>Trip details:<h4><br/>Source: ' + plan.source_lat + '<br/>Destination:' + plan.dest_lat + '<br/>Date:' + plan.date + '<br/>Time:' + plan.time,
           "Recipients": emails
         });
 
@@ -106,7 +108,7 @@ exports.joinPlan = function(request, response) {
 exports.searchPlan = function(request, response) {
 
   // Show all existing plans that the user can join, along with an option to create
-
+  checker=0;
   userRequest = request.body
   // console.log(userRequest)
 

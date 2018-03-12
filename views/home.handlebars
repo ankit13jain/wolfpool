@@ -229,7 +229,7 @@
 
 		$.validator.addMethod("timecheck", function(value) {
 			var x = document.forms["search_create_form"]["date"].value;
-			x = new Date(x);
+			x = new Date(x + " " + value + ":00");
 			var y = new Date();
 			if (x < y) {
 				return false;
@@ -332,7 +332,7 @@
 
 		if (!$("#mainDetailsForm").valid())
 			return false;
-
+		$('#create_btn').hide();
 		$('#source_lat').val(sourceObject.geometry.location.lat());
 		$('#source_long').val(sourceObject.geometry.location.lng());
 		$('#dest_lat').val(destinationObject.geometry.location.lat());
