@@ -84,7 +84,7 @@ exports.joinPlan = function(request, response) {
           "FromEmail": "sengncsu2018@gmail.com",
           "FromName": "Wolfpool Support",
           "Subject": 'Someone just joined your wolfpool plan!',
-          "Html-part": 'Hi there! ' + request.session.userName + ' just joined your trip with details listed below. Following are the email addresses of everyone in the plan: ' + emails_for_mail + '.<br/>Trip details:<br/>Source: ' + plan.source_id + '<br/>Destination: ' + plan.destination_id + '<br/>Date: ' + plan.date.date.split("T")[0] + '<br/>Time(24 hr format): ' + plan.time,
+          "Html-part": 'Hi there! ' + request.session.userName + ' just joined your trip with details listed below. Following are the email addresses of everyone in the plan: ' + emails_for_mail + '.<br/><br/>Trip details:<br/>Source: ' + plan.source_id + '<br/>Destination: ' + plan.destination_id + '<br/>Date: ' + (plan.date.getMonth() + 1) + '/' + plan.date.getDate() + '/' +  plan.date.getFullYear() + '<br/>Time(24 hr format): ' + plan.time,
           "Recipients": emails
         });
 
