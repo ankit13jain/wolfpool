@@ -108,7 +108,7 @@ exports.joinPlan = function(request, response) {
 exports.searchPlan = function(request, response) {
 
   // Show all existing plans that the user can join, along with an option to create
-
+  checker=0;
   userRequest = request.body
   // console.log(userRequest)
 
