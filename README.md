@@ -57,6 +57,7 @@ export MJ_PRIVATE_KEY="Your Private key"
 ```
 
 * Open the file controllers/UserController.js and modify the hostname in line 31 that forms the hostname part of the verification link.
+* Open the file views/partials/head.handlebars and comment line 12 that redirects the traffic to HTTPS for the web application to work on localhost.
 
 STEP 6: If all the above steps are completed successfully then you can start the bare minimum web application host **[Few of the essential features on work online when hosted on a cloud service provider like Amazon Web Services]**
 

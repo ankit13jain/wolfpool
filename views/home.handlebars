@@ -229,7 +229,7 @@
 
 		$.validator.addMethod("timecheck", function(value) {
 			var x = document.forms["search_create_form"]["date"].value;
-			x = new Date(x);
+			x = new Date(x + " " + value + ":00");
 			var y = new Date();
 			if (x < y) {
 				return false;
