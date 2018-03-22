@@ -5,6 +5,8 @@ function time_format (time) {
 }
 
 var planSchema = new mongoose.Schema({
+  source_id: String,
+  destination_id: String,
   source_lat: String,
   source_long: String,
   dest_lat: String,
@@ -17,8 +19,12 @@ var planSchema = new mongoose.Schema({
   {
   	type: String,
   	format: '00:00'
-  }
-
+  },
+  no_of_people: Number,
+  src_distance: Number,
+  dest_distance: Number,
+  vacancy: Number,
+  emails: [String]
 });
 
 module.exports = mongoose.model('Plan', planSchema);
